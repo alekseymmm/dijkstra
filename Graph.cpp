@@ -16,3 +16,7 @@ Graph::~Graph() {
 	// TODO Auto-generated destructor stub
 }
 
+bool operator <(const Edge &e1, const Edge &e2){
+	return e1.weight_ < e2.weight_;
+}
+

@@ -17,22 +17,22 @@ class Node {
 public:
 	Node(){
 	}
-private:
-	list<Node> adjacent_nodes_;
+
+	vector<Node> adjacent_nodes_;
 };
 
-class Edge : pair<Node, Node> {
+class Edge {
 public:
 	Edge(const Node &v1, const Node &v2, int weight = 1){
 		e_ = pair<Node, Node>(v1, v2);
 		weight_ = weight;
 	}
 
-private:
 	pair<Node, Node> e_;
 	int weight_;
 };
 
+bool operator <(const Edge &e1, const Edge &e2);
 
 class Graph {
 public:
