@@ -19,17 +19,17 @@ Graph::Graph(size_t num_verticies) {
 Graph::Graph(size_t num_verticies, double density) : Graph(num_verticies){
 
     default_random_engine generator(0);
-    uniform_int_distribution<size_t> nodes_distribution(0, 100);
+    uniform_int_distribution<size_t> nodes_distribution(0, num_verticies_);
     uniform_int_distribution<int> weights_distribution(1, num_verticies_);
 
     size_t num_adjacent = static_cast<int>(density * static_cast<double>(num_verticies_));
 
     for(vector<Node>::iterator it = V_.begin(); it != V_.end(); ++it){
-        it->adjacent_nodes_ = vector<Node>(num_adjacent, Node());
+        it->adjacent_nodes_ = vector<int>(num_adjacent);
         it->adjacent_weights_ = vector<int>(num_adjacent);
 
         for(size_t i = 0; i < num_adjacent; i++){
-        	it->adjacent_nodes_[i] = V_[nodes_distribution(generator)];
+        	it->adjacent_nodes_[i] = nodes_distribution(generator);
         	it->adjacent_weights_[i] = weights_distribution(generator);
         }
     }

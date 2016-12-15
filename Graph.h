@@ -18,7 +18,7 @@ public:
 	Node(){
 	}
 
-	vector<Node> adjacent_nodes_;
+	vector<int> adjacent_nodes_;
 	vector<int> adjacent_weights_;
 };
 
