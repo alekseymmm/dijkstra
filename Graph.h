@@ -19,6 +19,7 @@ public:
 	}
 
 	vector<Node> adjacent_nodes_;
+	vector<int> adjacent_weights_;
 };
 
 class Edge {
@@ -36,14 +37,15 @@ bool operator <(const Edge &e1, const Edge &e2);
 
 class Graph {
 public:
-	Graph(int num_verticies);
+	Graph(size_t num_verticies);
+	Graph(size_t num_verticies, double density);
 	~Graph();
 
-	void AddEdge(const Edge &e);
 
 private:
-	int num_verticies_;
+	size_t num_verticies_;
 	vector<Node> V_;
+	vector<int> shortest_path_;
 
 };
 
