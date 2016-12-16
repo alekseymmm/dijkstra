@@ -10,6 +10,7 @@
 
 #include "Graph.h"
 #include <queue>
+
 Graph::Graph(size_t num_verticies) {
 	num_verticies_ = num_verticies;
 	V_ = vector<Node>(num_verticies);
@@ -36,6 +37,10 @@ Graph::Graph(size_t num_verticies, double density, uint32_t seed) : Graph(num_ve
 
 Node& Graph::get_node(size_t node_pos){
 	return V_[node_pos];
+}
+
+bool Edge::is_visited(){
+	return e_.first.visited && e_.second.visited;
 }
 
 Graph::~Graph() {
