@@ -33,14 +33,19 @@ uint32_t Djikstra_SP(Graph &G, uint32_t src_node_pos, uint32_t dst_node_pos){
 		if(E.empty()){
 			//all possible nodes proceeded
 		}
+
 		else{
 			Edge smallest_edge = E.top();
-			while (smallest_edge.e_.second.visited == true && !E.empty()){
-				smallest_edge = E.top();
+			while (smallest_edge.is_visited()){
 				E.pop();
+				if(E.empty()){
+					//handle this return graph is not connected
+				}
+				smallest_edge = E.top();
 			}
-			E.pop();
+
 			cur_node = smallest_edge.e_.second;
+			//if we cfound shorter past then before the nsave it
 			if(smallest_edge.weight_ < cur_node.shortest_path_){
 				cur_node.shortest_path_ = smallest_edge.weight_;
 				cur_node.visited = true;

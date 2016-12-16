@@ -32,6 +32,8 @@ public:
 		weight_ = weight;
 	}
 
+	bool is_visited();
+
 	pair<Node, Node> e_;
 	uint32_t weight_;
 };
