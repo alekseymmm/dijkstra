@@ -8,33 +8,31 @@
 #include <iostream>
 #include <set>
 
+#include "djikstra_alg.h"
 #include "Graph.h"
 
 using namespace std;
 
 
-int main(){
+int main(void){
 
 	Graph G(10, 0.3);
-	vector<Node> V(10);
+	//Djikstra_SP(G, 0, 5);
 
-//	Edge e1(V[0], V[1], 20);
-//	Edge e2(V[1], V[2], 10);
-//	Edge e3(V[2], V[5], 15);
-//	Edge e4(V[3], V[0], 2);
-//	Edge e5(V[5], V[1], 10);
-//
-//	multiset<Edge> ms_edges;
-//	ms_edges.insert(e1);
-//	ms_edges.insert(e2);
-//	ms_edges.insert(e3);
-//	ms_edges.insert(e4);
-//	ms_edges.insert(e5);
-//
-//	for(multiset<Edge>::iterator it = ms_edges.begin(); it != ms_edges.end(); ++it){
-//		cout << "weight = " << it->weight_ << endl;
-//	}
-//	cout << (e1 < e2) << endl;
+	Graph G_test(4);
+	G_test.V_[0].adjacent_nodes_ = vector<size_t> {1, 2};
+	G_test.V_[0].adjacent_weights_ = vector<uint32_t> {1, 4};
+
+	G_test.V_[1].adjacent_nodes_ = vector<size_t> {2, 3};
+	G_test.V_[1].adjacent_weights_ = vector<uint32_t> {2, 6};
+
+	G_test.V_[2].adjacent_nodes_ = vector<size_t>{3};
+	G_test.V_[2].adjacent_weights_ = vector<uint32_t>{3};
+
+	G_test.V_[3].adjacent_nodes_ = vector<size_t>{};
+	G_test.V_[3].adjacent_weights_ = vector<uint32_t>{};
+
+	Djikstra_SP(G_test,0, 3);
 	cout << "done" << endl;
 	return 0;
 }
