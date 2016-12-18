@@ -14,7 +14,9 @@
 Graph::Graph(size_t num_verticies) {
 	num_verticies_ = num_verticies;
 	V_ = vector<Node>(num_verticies);
-	shortest_path_ = vector<uint32_t>(num_verticies, std::numeric_limits<uint32_t>::max());
+	for (size_t i; i < num_verticies; i++) {
+		V_[i].node_pos_ = i;
+	}
 }
 
 Graph::Graph(size_t num_verticies, double density, uint32_t seed) : Graph(num_verticies){
@@ -38,17 +40,17 @@ Graph::Graph(size_t num_verticies, double density, uint32_t seed) : Graph(num_ve
 Node& Graph::get_node(size_t node_pos){
 	return V_[node_pos];
 }
+size_t Node::get_pos() {
+	return node_pos_;
+}
 
-bool Edge::is_visited(){
-	return e_.first.visited && e_.second.visited;
+bool operator <(const Node &n1, const Node &n2) {
+	return n1.shortest_path_ < n2.shortest_path_;
 }
 
 Graph::~Graph() {
 	// TODO Auto-generated destructor stub
 }
 
-bool operator <(const Edge &e1, const Edge &e2){
-	//since we need min heap
-	return e1.weight_ > e2.weight_;
-}
+
 

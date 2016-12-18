@@ -18,27 +18,17 @@ class Node {
 public:
 	Node(){
 	}
+	
+	size_t get_pos();
 
+	size_t node_pos_;
 	vector<size_t> adjacent_nodes_;
 	vector<uint32_t> adjacent_weights_;
 	uint32_t shortest_path_ = std::numeric_limits<uint32_t>::max();
 	bool visited = false;
 };
 
-class Edge {
-public:
-	Edge(const Node &v1, const Node &v2, int weight = 1){
-		e_ = pair<Node, Node>(v1, v2);
-		weight_ = weight;
-	}
-
-	bool is_visited();
-
-	pair<Node, Node> e_;
-	uint32_t weight_;
-};
-
-bool operator <(const Edge &e1, const Edge &e2);
+bool operator <(const Node &n1, const Node &n2);
 
 class Graph {
 public:
@@ -49,8 +39,6 @@ public:
 
 	size_t num_verticies_;
 	vector<Node> V_;
-	vector<uint32_t> shortest_path_;
-
 };
 
 #endif /* GRAPH_H_ */
