@@ -21,7 +21,7 @@ public:
 	
 	size_t get_pos();
 
-	size_t node_pos_;
+	size_t node_pos_ = 0;
 	vector<size_t> adjacent_nodes_;
 	vector<uint32_t> adjacent_weights_;
 	uint32_t shortest_path_ = std::numeric_limits<uint32_t>::max();

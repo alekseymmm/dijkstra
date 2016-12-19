@@ -14,7 +14,7 @@
 Graph::Graph(size_t num_verticies) {
 	num_verticies_ = num_verticies;
 	V_ = vector<Node>(num_verticies);
-	for (size_t i; i < num_verticies; i++) {
+	for (size_t i = 0; i < num_verticies; i++) {
 		V_[i].node_pos_ = i;
 	}
 }

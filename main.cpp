@@ -16,7 +16,7 @@ using namespace std;
 
 int main(void){
 
-	Graph G(10, 0.3);
+	//Graph G(10, 0.3);
 	//Djikstra_SP(G, 0, 5);
 
 	Graph G_test(4);
