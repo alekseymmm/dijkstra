@@ -5,17 +5,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Graph.cpp \
-../djikstra_alg.cpp \
+../dijkstra_alg.cpp \
 ../main.cpp 
 
 OBJS += \
 ./Graph.o \
-./djikstra_alg.o \
+./dijkstra_alg.o \
 ./main.o 
 
 CPP_DEPS += \
 ./Graph.d \
-./djikstra_alg.d \
+./dijkstra_alg.d \
 ./main.d 
 
 

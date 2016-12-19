@@ -6,9 +6,8 @@
  */
 
 #include <iostream>
-#include <set>
 
-#include "djikstra_alg.h"
+#include "dijkstra_alg.h"
 #include "Graph.h"
 
 using namespace std;
@@ -32,7 +31,8 @@ int main(void){
 	G_test.V_[3].adjacent_nodes_ = vector<size_t>{};
 	G_test.V_[3].adjacent_weights_ = vector<uint32_t>{};
 
-	Djikstra_SP(G_test,0, 3);
+	uint32_t sp = Dijkstra_SP(G_test,0, 3);
+	cout << "Shortest path = " << sp << endl;
 	cout << "done" << endl;
 	return 0;
 }
