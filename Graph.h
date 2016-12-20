@@ -19,16 +19,18 @@ public:
 	Node(){
 	}
 	
-	size_t get_pos();
+	size_t get_pos() const;
 
 	size_t node_pos_ = 0;
 	vector<size_t> adjacent_nodes_;
 	vector<uint32_t> adjacent_weights_;
 	uint32_t shortest_path_ = std::numeric_limits<uint32_t>::max();
 	bool visited = false;
+	Node *parent_node = nullptr;
 };
 
 bool operator <(const Node &n1, const Node &n2);
+ostream& operator<<(ostream& os, const Node& n);
 
 class Graph {
 public:

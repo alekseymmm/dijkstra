@@ -10,7 +10,9 @@
 
 #include "Graph.h"
 
-uint32_t Dijkstra_SP(Graph &G, uint32_t src_node_pos, uint32_t dst_node_pos);
+uint32_t Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos);
+
+list<Node> Recover_Path(Graph& G, size_t src_node_pos, size_t dst_node_pos);
 
 
 #endif /* DIJKSTRA_ALG_H_ */

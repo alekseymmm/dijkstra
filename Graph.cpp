@@ -7,9 +7,10 @@
 
 #include <random>
 #include <limits>
+#include <iostream>
 
 #include "Graph.h"
-#include <queue>
+
 
 Graph::Graph(size_t num_verticies) {
 	num_verticies_ = num_verticies;
@@ -40,11 +41,15 @@ Graph::Graph(size_t num_verticies, double density, uint32_t seed) : Graph(num_ve
 Node& Graph::get_node(size_t node_pos){
 	return V_[node_pos];
 }
-size_t Node::get_pos() {
+size_t Node::get_pos() const {
 	return node_pos_;
 }
 
-bool operator <(const Node &n1, const Node &n2) {
+ostream& operator<< (ostream& os, const Node& n){
+	return os << n.get_pos() << " ";
+
+}
+bool operator <(const Node& n1, const Node& n2) {
 	return n1.shortest_path_ < n2.shortest_path_;
 }
 
