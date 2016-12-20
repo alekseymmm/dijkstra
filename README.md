@@ -13,6 +13,7 @@ $ cd Debug
 $ make
  
 To build release version
+
 $ cd Release
 
 $ make
