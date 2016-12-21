@@ -15,20 +15,6 @@ using namespace std;
 
 int main(void){
 
-
-//	Graph G_test(4);
-//	G_test.V_[0].adjacent_nodes_ = vector<size_t> {1, 2};
-//	G_test.V_[0].adjacent_weights_ = vector<uint32_t> {1, 4};
-//
-//	G_test.V_[1].adjacent_nodes_ = vector<size_t> {2, 3};
-//	G_test.V_[1].adjacent_weights_ = vector<uint32_t> {2, 6};
-//
-//	G_test.V_[2].adjacent_nodes_ = vector<size_t>{3};
-//	G_test.V_[2].adjacent_weights_ = vector<uint32_t>{3};
-//
-//	G_test.V_[3].adjacent_nodes_ = vector<size_t>{};
-//	G_test.V_[3].adjacent_weights_ = vector<uint32_t>{};
-
 	Graph G_test(6);
 	G_test.V_[0].adjacent_nodes_ = vector<size_t> {1, 2, 5};
 	G_test.V_[0].adjacent_weights_ = vector<uint32_t> {7, 9 ,14};
