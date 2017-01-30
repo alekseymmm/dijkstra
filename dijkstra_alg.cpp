@@ -10,9 +10,9 @@
 
 #include "Graph.h"
 
-uint32_t Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos){
+std::tuple<uint64_t, bool> Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos){
 	for (vector<Node>::iterator it = G.V_.begin(); it != G.V_.end(); ++it) {
-		it->shortest_path_ = numeric_limits<uint32_t>::max();
+		it->shortest_path_ = numeric_limits<uint64_t>::max();
 		it->visited   = false;
 	}
 
@@ -27,7 +27,7 @@ uint32_t Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos){
 	while (!G.get_node(dst_node_pos).visited) {
 		if (frontier.empty()) {
 			//there is no path
-			return -1;
+			return std::make_tuple(0, false);
 		}
 
 		//get the nearest node in frontier
@@ -39,7 +39,7 @@ uint32_t Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos){
 
 		//if we find the path it is the shortest path
 		if (nearest_node.get_pos() == dst_node_pos) {
-			return nearest_node.shortest_path_;
+			return std::make_tuple(nearest_node.shortest_path_, true);
 		}
 
 		//proceed all adjacent nodes
@@ -50,7 +50,7 @@ uint32_t Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos){
 			if (node.visited == false) {
 
 				//calculate new possible shortest distance to node
-				uint32_t current_sp = nearest_node.shortest_path_ + nearest_node.adjacent_weights_[i];
+				uint64_t current_sp = nearest_node.shortest_path_ + nearest_node.adjacent_weights_[i];
 
 				//if new calculated path is shorter then path calculated before
 				if(current_sp < node.shortest_path_){
@@ -74,7 +74,7 @@ uint32_t Dijkstra_SP(Graph &G, size_t src_node_pos, size_t dst_node_pos){
 		}
 	}
 
-	return 0;
+	return std::make_tuple(0, false);
 }
 
 list<Node> Recover_Path(Graph& G, size_t src_node_pos, size_t dst_node_pos){

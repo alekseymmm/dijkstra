@@ -23,8 +23,8 @@ public:
 
 	size_t node_pos_ = 0;
 	vector<size_t> adjacent_nodes_;
-	vector<uint32_t> adjacent_weights_;
-	uint32_t shortest_path_ = std::numeric_limits<uint32_t>::max();
+	vector<uint64_t> adjacent_weights_;
+	uint64_t shortest_path_ = std::numeric_limits<uint64_t>::max();
 	bool visited = false;
 	Node *parent_node = nullptr;
 };
@@ -35,7 +35,7 @@ ostream& operator<<(ostream& os, const Node& n);
 class Graph {
 public:
 	Graph(size_t num_verticies);
-	Graph(size_t num_verticies, double density, uint32_t seed = 0);
+	Graph(size_t num_verticies, double density, uint64_t seed = 0);
 	Node &get_node(size_t node_pos);
 	~Graph();
 
