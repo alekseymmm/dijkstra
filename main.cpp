@@ -35,17 +35,24 @@ int main(void){
 	G_test.V_[5].adjacent_weights_ = vector<uint32_t> {14, 2, 9};
 
 	size_t src_node_pos = 0;
-	size_t dst_node_pos = 4;
-	uint32_t sp = Dijkstra_SP(G_test, src_node_pos, dst_node_pos);
-	list<Node> path = Recover_Path(G_test, src_node_pos, dst_node_pos);
+	size_t dst_node_pos = 9;
+	Graph G_test2(100, 0.5, 0);
+	uint32_t sp = Dijkstra_SP(G_test2, src_node_pos, dst_node_pos);
+	if (sp){
+		list<Node> path = Recover_Path(G_test2, src_node_pos, dst_node_pos);
+		cout << "Shortest path len : " << sp << endl;
+		cout << "Shortest path : ";
 
-	cout << "Shortest path len : " << sp << endl;
-	cout << "Shortest path : ";
-
-	for(list<Node>::iterator it = path.begin(); it != path.end(); it++){
-		cout << *it;
+		for(list<Node>::iterator it = path.begin(); it != path.end(); it++){
+			cout << *it;
+		}
+		cout << endl;
 	}
-	cout << endl;
+	else{
+		cout << "No path found.\n" << endl;
+	}
+
+
 	cout << "done" << endl;
 	return 0;
 }

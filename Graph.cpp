@@ -22,7 +22,7 @@ Graph::Graph(size_t num_verticies) {
 
 Graph::Graph(size_t num_verticies, double density, uint32_t seed) : Graph(num_verticies){
     default_random_engine generator(seed);
-    uniform_int_distribution<size_t> nodes_distribution(0, num_verticies_);
+    uniform_int_distribution<size_t> nodes_distribution(0, num_verticies_ - 1);
     uniform_int_distribution<uint32_t> weights_distribution(1, num_verticies_);
 
     size_t num_adjacent = static_cast<size_t>(density * static_cast<double>(num_verticies_));
