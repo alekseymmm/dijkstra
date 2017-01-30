@@ -37,7 +37,7 @@ int main(void){
 
 	size_t src_node_pos = 0;
 	size_t dst_node_pos = 9;
-	Graph G_test2(1000, 0.5, 0);
+	Graph G_test2(100, 0.5, 0);
 
 	uint64_t sp = 0;
 	bool found = false;
